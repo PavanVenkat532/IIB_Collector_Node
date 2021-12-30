@@ -1,0 +1,62 @@
+Summary of selections: WSDL files generation
+
+The selected message set:
+/Employee/Employee
+
+The generated WSDL files will go into:
+/Employee/Employee/net/mrmnames/www
+
+The version of WSDL to be generated: 1.1
+The version of SOAP to be generated: 1.1
+
+The selected style for WSDL generation: document
+The WSDL Namespace: http://tempuri.org/Employee
+
+The following operations will be created:
+Operation (Request-Response)
+
+The following bindings are selected:
+SOAP over http.
+
+The following WSDL files will be generated:
+/Employee/Employee/net/mrmnames/www/EmployeeService.wsdl
+
+
+Generating XML Schema files from Message Definition files
+Generating schema for no XML Wire format
+Generating schema using the strict option
+All complex types and groups with a Content validation of "Open" or "Open defined" will be generated as if they had Content validation "Closed"
+All complex types and groups with a Composition of "Ordered set" or "Unordered set" will be generated with a Composition of "Sequence"
+All complex types and groups with a Composition of "Message" will be generated with a Composition of "Choice"
+
+
+Processing File : "/Employee/Employee/net/mrmnames/www/EmployeeDetails.mxsd"
+
+Saving File : "/Employee/Employee/org/tempuri/employee/net/mrmnames/www/EmployeeDetails.xsd" 
+
+Generating XML Schema file \Employee\Employee\net\mrmnames\www\EmployeeDetails.mxsd from Message Definition file \Employee\Employee\org\tempuri\employee\net\mrmnames\www\EmployeeDetails.xsd
+Creating new WSDL Service file '\Employee\Employee\org\tempuri\employee\EmployeeService.wsdl'
+Setting wsdl definition name for 'EmployeeService.wsdl': Employee
+Setting wsdl definition targetNamespace for 'EmployeeService.wsdl': http://tempuri.org/Employee
+Adding namespace: xmlns for 'EmployeeService.wsdl':oldtns1=http://www.mrmnames.net
+Adding namespace: xmlns for 'EmployeeService.wsdl':soap=http://schemas.xmlsoap.org/wsdl/soap/
+Adding namespace: xmlns for 'EmployeeService.wsdl':xsd=http://www.w3.org/2001/XMLSchema
+Adding namespace: xmlns for 'EmployeeService.wsdl':wsdl=http://schemas.xmlsoap.org/wsdl/
+Creating new WSDL Interface file '\Employee\Employee\org\tempuri\employee\EmployeeService.wsdl'
+Creating portType for WSDL Interface: EmployeePortType
+Creating portType operation 'Operation'
+Creating message 'Operation_in'
+Creating message 'Operation_out'
+Creating message 'Operation_fault1'
+Creating SOAP over HTTP binding 'EmployeeSOAP_HTTP_Binding'
+Creating binding operation 'Operation' for binding 'EmployeeSOAP_HTTP_Binding'
+Creating SOAP over HTTP service 'EmployeeSOAP_HTTP_Service'
+Creating port 'EmployeeSOAP_HTTP_Port' for service 'EmployeeSOAP_HTTP_Service'
+
+Elapsed time processing this WSDL definition: 0.714 seconds
+Number of warnings for this WSDL definition: 0
+
+
+Number of files processed: 2
+
+

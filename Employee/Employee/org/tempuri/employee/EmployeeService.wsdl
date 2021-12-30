@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Employee" targetNamespace="http://tempuri.org/Employee" xmlns:oldtns1="http://www.mrmnames.net" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/Employee" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="EmployeeSOAP_HTTP_Binding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Employee" xmlns:mrm="http://tempuri.org/Employee">
+      <xsd:import namespace="http://www.mrmnames.net" schemaLocation="../../../net/mrmnames/www/EmployeeDetails.mxsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Operation_in">
+    <wsdl:part element="oldtns1:Request" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="Operation_out">
+    <wsdl:part element="oldtns1:Response" name="Response"/>
+  </wsdl:message>
+  <wsdl:message name="Operation_fault1">
+    <wsdl:part element="oldtns1:Request" name="Request"/>
+  </wsdl:message>
+  <wsdl:portType name="EmployeePortType">
+    <wsdl:operation name="Operation">
+      <wsdl:input message="tns:Operation_in" name="Operation_Input"/>
+      <wsdl:output message="tns:Operation_out" name="Operation_Output"/>
+      <wsdl:fault message="tns:Operation_fault1" name="Operation_Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeeSOAP_HTTP_Binding" type="tns:EmployeePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Operation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Operation_Input">
+        <soap:body parts="Request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Operation_Output">
+        <soap:body parts="Response" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Operation_Fault">
+        <soap:fault name="Operation_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeeSOAP_HTTP_Service">
+    <wsdl:port binding="tns:EmployeeSOAP_HTTP_Binding" name="EmployeeSOAP_HTTP_Port">
+      <soap:address location="http://localhost:7800/EmployeeSOAP_HTTP_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

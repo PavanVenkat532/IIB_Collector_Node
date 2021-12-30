@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Order" targetNamespace="http://tempuri.org/Order" xmlns:oldtns1="http://www.mrmnames.net" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/Order" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="OrderSOAP_HTTP_Binding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Order" xmlns:mrm="http://tempuri.org/Order">
+      <xsd:import namespace="http://www.mrmnames.net" schemaLocation="../../../net/mrmnames/www/OrderDetails.mxsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Operation1_in">
+    <wsdl:part element="oldtns1:Request" name="Request"/>
+  </wsdl:message>
+  <wsdl:message name="Operation1_out">
+    <wsdl:part element="oldtns1:Response" name="Response"/>
+  </wsdl:message>
+  <wsdl:message name="Operation1_fault1">
+    <wsdl:part element="oldtns1:Request" name="Request"/>
+  </wsdl:message>
+  <wsdl:portType name="OrderPortType">
+    <wsdl:operation name="Operation1">
+      <wsdl:input message="tns:Operation1_in" name="Operation1_Input"/>
+      <wsdl:output message="tns:Operation1_out" name="Operation1_Output"/>
+      <wsdl:fault message="tns:Operation1_fault1" name="Operation1_Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderSOAP_HTTP_Binding" type="tns:OrderPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Operation1">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="Operation1_Input">
+        <soap:body parts="Request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="Operation1_Output">
+        <soap:body parts="Response" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Operation1_Fault">
+        <soap:fault name="Operation1_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderSOAP_HTTP_Service">
+    <wsdl:port binding="tns:OrderSOAP_HTTP_Binding" name="OrderSOAP_HTTP_Port">
+      <soap:address location="http://localhost:7800/OrderSOAP_HTTP_Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
