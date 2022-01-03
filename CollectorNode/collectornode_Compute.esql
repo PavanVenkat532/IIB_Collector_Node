@@ -1,0 +1,34 @@
+
+
+CREATE COMPUTE MODULE collectornode_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		
+		DECLARE a,b,c INTEGER;
+	     
+	     set a = InputRoot.Collection.in1.XMLNSC.root.a;
+	     set b = InputRoot.Collection.in2.JSON.Data.a;
+	     
+	     set c = a*b;
+	     
+	     set OutputRoot.XMLNSC.root.result = c;
+		
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
